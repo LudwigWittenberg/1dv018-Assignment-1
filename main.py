@@ -29,8 +29,8 @@ def main():
 
   print(t2.get_list())
   print("Is 1 connected to 3?", t2.is_connected(1, 3))
-  print("Is 50 connected to 60?", t2.is_connected(33, 34))
-  print("Is 99 connected to 4?", t2.is_connected(22, 4))
+  print("Is 33 connected to 34?", t2.is_connected(33, 34))
+  print("Is 22 connected to 4?", t2.is_connected(22, 4))
 
   print("")
   print("----------- Task 3 -----------")
