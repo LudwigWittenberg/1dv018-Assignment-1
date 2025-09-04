@@ -1,4 +1,4 @@
-class UnionFind:
+class QuickFind:
   def __init__(self, size):
     self.list = list(range(size))
 
@@ -12,3 +12,6 @@ class UnionFind:
 
   def connected(self, index, value):
     return self.list[index] == self.list[value]
+
+  def get_list(self):
+    return self.list

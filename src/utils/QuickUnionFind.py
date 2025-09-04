@@ -16,3 +16,6 @@ class QuickUnionFind:
 
   def connected(self, a, b):
     return self.root(a) == self.root(b)
+
+  def get_list(self):
+    return self.list
