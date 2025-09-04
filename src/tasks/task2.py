@@ -1,10 +1,10 @@
 from src.printHelper import PrintHelper
-from src.utils.UnionFind import UnionFind
+from src.utils.QuickUnionFind import QuickUnionFind
 import time
 
-class Task1:
+class Task2:
   def __init__(self, num):
-    self.uf = UnionFind(num)
+    self.uf = QuickUnionFind(num)
 
   def add_union(self, num1, num2):
     print("")
