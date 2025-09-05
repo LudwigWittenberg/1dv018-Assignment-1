@@ -1,5 +1,5 @@
-from src.utils.Graphs.tasks.Task3GenerateGraphs import Task3GenerateGraphs
-from src.utils.Graphs.tasks.Task6GenerateGraphs import Task6GenerateGraphs
+from src.utils.Graphs.Task3GenerateGraphs import Task3GenerateGraphs
+from src.utils.Graphs.Task6GenerateGraphs import Task6GenerateGraphs
 
 def matPlot():
   print("Generating Graphs for Task 3")
