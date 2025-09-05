@@ -3,6 +3,8 @@ from src.tasks.task2 import Task2
 from src.tasks.task3 import Task3
 from src.tasks.task4 import Task4
 from src.tasks.task5 import Task5
+from src.tasks.task6 import Task6
+from src.utils.GetRadomNumbers import get_random_numbers
 
 def main():
   # print("----------- Task 1 -----------")
@@ -45,13 +47,27 @@ def main():
   print("")
   print("----------- Task 4 -----------")
 
-  t4 = Task4(4)
-  t4.run()
+  array = get_random_numbers(4)
+  t4 = Task4(array)
+  nums, result = t4.run()
+  print("Random Numbers:", nums)
+  print("Three Sum Combinations:", result)
 
   print("")
   print("----------- Task 5 -----------")
 
-  t5 = Task5(4)
-  t5.run()
+  array = get_random_numbers(4)
+  t5 = Task5(array)
+  nums, result = t5.run()
+  print("Random Numbers:", nums)
+  print("Three Sum Combinations:", result)
+
+  print("")
+  print("----------- Task 6 -----------")
+
+  t6 = Task6()
+
+  t6.time_task_4()
+  t6.time_task_5()
 
 main()

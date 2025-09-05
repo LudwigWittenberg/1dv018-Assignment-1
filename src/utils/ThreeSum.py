@@ -2,13 +2,12 @@ class ThreeSum:
     def find_three_sum(self, nums):
       res = []
 
-      for i, vi in enumerate(nums):
-        for j, vj in enumerate(nums):
-          for k, vk in enumerate(nums):
-            if i == j or i == k or j == k:
-              continue
-            tripplets = sorted([vi, vj, vk])
-            if vi + vj + vk == 0 and tripplets not in res:
-              res.append(tripplets)
+      for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+          for k in range(j + 1, len(nums)):
+            if nums[i] + nums[j] + nums[k] == 0:
+              tripplets = tuple(sorted([nums[i], nums[j], nums[k]]))
+              if tripplets not in res:
+                res.append(tripplets)
 
       return res

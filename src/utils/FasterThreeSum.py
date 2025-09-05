@@ -11,8 +11,6 @@ class FasterThreeSum:
       left, right = index + 1, n - 1
       while left < right:
         total = nums[index] + nums[left] + nums[right]
-
-        print(left, right, total)
         
         if total == 0:
           res.append([nums[index], nums[left], nums[right]])
