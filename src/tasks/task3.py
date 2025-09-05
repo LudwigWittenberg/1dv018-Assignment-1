@@ -14,7 +14,7 @@ class Task3:
     random_of_finds = self.get_random_numbers(10, 1)
 
     print("Numbers of unions:", numbers_of_unions)
-    print("Random of finds:", random_of_finds)
+    print("Number of finds:", random_of_finds)
     print("")
 
     for size in self.sizes:
@@ -47,7 +47,7 @@ class Task3:
     random_of_finds = self.get_random_numbers(10, 1)
 
     print("Numbers of unions:", numbers_of_unions)
-    print("Random of finds:", random_of_finds)
+    print("Number of finds:", random_of_finds)
     print("")
 
     for size in self.sizes:

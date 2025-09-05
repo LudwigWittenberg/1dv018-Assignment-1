@@ -40,10 +40,16 @@ Kollar vi på Union (den första grafen) kan vi se att `quickfind` presterar sä
 
 Kollar vi sedan på Connected (den andra grafen) kan vi se att de båda algoritmerna presterar ungefär lika bra. Det skiljer bara några millisekunder, vilket inte är någon betydande tid i det stora hela.
 
+För QuickFind växer tiden linjärt med antalet element. Till exempel tar en union-operation cirka 0,55 sekunder vid 100 000 element, medan samma operation vid 1 000 000 element tar ungefär tio gånger längre tid, cirka 5,8 sekunder. UnionFind däremot ligger kvar på ungefär samma tidsnivå oavsett storlek, vilket visar att dess prestanda i praktiken är nästan konstant.
+
 ### Task 6
 
 Jag har även här testat med olika storlekar på listorna och sett att tiden ökar med storleken, framför allt med ThreeSum (O(n³)). Testar vi den algoritmen med 10 000 element tar det väldigt lång tid. Detta är i linje med förväntningarna då ThreeSum använder sig av 3 loopar, vilket ökar tiden eftersom den måste iterera över alla element i listan för varje loop, jämfört med andra algoritmer som har en lägre tidskomplexitet.
 
 FasterThreeSum (O(n² log n)) presterar bättre än ThreeSum. Detta beror på att den använder sig av en sorterad lista samt en smartare algoritm för att hitta tripletter vars summa blir 0. Den sätter första siffran på plats 0 i arrayen och sedan flyttar den andra och tredje siffran beroende på om summan är mindre eller större än 0. Detta gör att den inte behöver iterera över alla element i listan för varje loop, vilket minskar tiden avsevärt.
+
+När vi testar ThreeSum (O(n³)) ser vi att algoritmen inte växer linjärt, som exempelvis QuickFinds union, utan i praktiken följer en kubisk tillväxt. Vid 200 element tar beräkningen cirka 0,4 sekunder, vid 400 element cirka 3,6 sekunder, och vid 800 element hela 43 sekunder. När vi når 1000 element ökar tiden till närmare 100 sekunder.
+
+För den andra varianten, FasterThreeSum (O(n² log n)), är resultatet betydligt bättre. Vid 1000 element tar körningen endast omkring 0,2 sekunder – en mycket stor skillnad jämfört med de nästan 100 sekunder som den kubiska algoritmen kräver. Även denna algoritm växer snabbare än linjärt, men betydligt långsammare än ThreeSum.
 
 ![Graf över prestanda](graphs/3sum_graph.png)
