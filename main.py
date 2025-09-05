@@ -2,6 +2,7 @@ from src.tasks.task1 import Task1
 from src.tasks.task2 import Task2
 from src.tasks.task3 import Task3
 from src.tasks.task4 import Task4
+from src.tasks.task5 import Task5
 
 def main():
   # print("----------- Task 1 -----------")
@@ -46,5 +47,11 @@ def main():
 
   t4 = Task4(4)
   t4.run()
+
+  print("")
+  print("----------- Task 5 -----------")
+
+  t5 = Task5(4)
+  t5.run()
 
 main()
