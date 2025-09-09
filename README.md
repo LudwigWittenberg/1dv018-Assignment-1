@@ -40,7 +40,14 @@ Kollar vi på Union (den första grafen) kan vi se att `quickfind` presterar sä
 
 Kollar vi sedan på Connected (den andra grafen) kan vi se att de båda algoritmerna presterar ungefär lika bra. Det skiljer bara några millisekunder, vilket inte är någon betydande tid i det stora hela.
 
-För QuickFind växer tiden linjärt med antalet element. Till exempel tar en union-operation cirka 0,55 sekunder vid 100 000 element, medan samma operation vid 1 000 000 element tar ungefär tio gånger längre tid, cirka 5,8 sekunder. UnionFind däremot ligger kvar på ungefär samma tidsnivå oavsett storlek, vilket visar att dess prestanda i praktiken är nästan konstant.
+För QuickFind växer tiden linjärt med antalet element. Detta kan vi enkelt visa genom att jämföra tider för olika storlekar:
+
+- Vid 100 000 element tar union-operationen cirka 0,55 sekunder
+- Vid 1 000 000 element (10 gånger fler) tar det cirka 5,8 sekunder (ungefär 10 gånger längre tid)
+
+En linjär algoritm (O(n)) förväntas ta ungefär 10 gånger längre tid när indata blir 10 gånger större, vilket stämmer med våra mätvärden (5,8 / 0,55 ≈ 10). Detta bekräftar att QuickFind växer linjärt.
+
+UnionFind däremot ligger kvar på ungefär samma tidsnivå oavsett storlek, vilket visar att dess prestanda i praktiken är nästan konstant. Teoretiskt har den O(log n) komplexitet, men eftersom log n växer mycket långsamt när n ökar, ser vi i praktiken en nästan konstant prestanda för de datamängder vi testat.
 
 ### Task 6
 
@@ -50,6 +57,20 @@ FasterThreeSum (O(n² log n)) presterar bättre än ThreeSum. Detta beror på at
 
 När vi testar ThreeSum (O(n³)) ser vi att algoritmen inte växer linjärt, som exempelvis QuickFinds union, utan i praktiken följer en kubisk tillväxt. Vid 200 element tar beräkningen cirka 0,4 sekunder, vid 400 element cirka 3,6 sekunder, och vid 800 element hela 43 sekunder. När vi når 1000 element ökar tiden till närmare 100 sekunder.
 
+Vi kan enkelt se den kubiska tillväxten (O(n³)) genom att jämföra tiderna:
+
+- Vid 400 element tar beräkningen cirka 3,6 sekunder
+- Vid 800 element (dubbelt så många) tar det hela 43 sekunder
+
+Om vi fördubblar storlek för en kubisk algoritm, förväntar vi oss att tiden ökar med 2³ = 8 gånger. Vår ökning är 43 / 3,6 ≈ 12 gånger, vilket är i närheten av det förväntade och bekräftar att algoritmen växer ungefär kubiskt.
+
 För den andra varianten, FasterThreeSum (O(n² log n)), är resultatet betydligt bättre. Vid 1000 element tar körningen endast omkring 0,2 sekunder – en mycket stor skillnad jämfört med de nästan 100 sekunder som den kubiska algoritmen kräver. Även denna algoritm växer snabbare än linjärt, men betydligt långsammare än ThreeSum.
+
+Vi kan bekräfta att FasterThreeSum har lägre komplexitet (O(n² log n)) genom att jämföra med ThreeSum:
+
+- ThreeSum med 1000 element: cirka 100 sekunder
+- FasterThreeSum med 1000 element: endast 0,2 sekunder
+
+En förbättring med 500 gånger! Detta visar tydligt att FasterThreeSum har en mycket lägre komplexitet än den kubiska algoritmen, vilket stämmer med den teoretiska O(n² log n) tidskomplexiteten.
 
 ![Graf över prestanda](graphs/3sum_graph.png)
